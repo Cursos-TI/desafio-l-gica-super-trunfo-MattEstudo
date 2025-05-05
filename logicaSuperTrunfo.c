@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// estrutura da carta 
-
 typedef struct {
     char estado[50];
     char codigo[10];
@@ -29,7 +27,7 @@ void processar_carta1() {
 
 // Função para processar a Carta 2
 void processar_carta2() {
-    Carta carta2 = {"Caera", "CE", "Ceara", 9233656, 1200.0, 500000.0, 30};
+    Carta carta2 = {"Rio de Janeiro", "RJ", "Rio de Janeiro", 6000000, 1200.0, 500000.0, 30};
     float densidade2 = (float)carta2.populacao / carta2.area;
     float pib_per_capita2 = carta2.pib / (float)carta2.populacao;
 
@@ -40,7 +38,6 @@ void processar_carta2() {
     printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
     printf("PIB per capita: %.2f\n\n", pib_per_capita2);
 }
-
 
 // Função para comparar as duas cartas
 void comparar_cartas() {
@@ -67,22 +64,24 @@ void comparar_cartas() {
     } else if (strcmp(atributo_escolhido, "PIB per capita") == 0) {
         valor1 = carta1.pib / (float)carta1.populacao;
         valor2 = carta2.pib / (float)carta2.populacao;
- 
-        printf("Comparação entre as cartas (Atributo: %s):\n", atributo_escolhido);
-        printf("Carta 1 (%s): %.2f\n", carta1.cidade, valor1);
-        printf("Carta 2 (%s): %.2f\n", carta2.cidade, valor2);
-    
-        if (eh_densidade) {
-            if (valor1 < valor2) printf("Carta 1 (%s) venceu!\n", carta1.cidade);
-            else if (valor2 < valor1) printf("Carta 2 (%s) venceu!\n", carta2.cidade);
-            else printf("Empate!\n");
-        } else {
-            if (valor1 > valor2) printf("Carta 1 (%s) venceu!\n", carta1.cidade);
-            else if (valor2 > valor1) printf("Carta 2 (%s) venceu!\n", carta2.cidade);
-            else printf("Empate!\n");
-        }
-    }   
-      // Função principal (main)
+    }
+
+    printf("Comparação entre as cartas (Atributo: %s):\n", atributo_escolhido);
+    printf("Carta 1 (%s): %.2f\n", carta1.cidade, valor1);
+    printf("Carta 2 (%s): %.2f\n", carta2.cidade, valor2);
+
+    if (eh_densidade) {
+        if (valor1 < valor2) printf("Carta 1 (%s) venceu!\n", carta1.cidade);
+        else if (valor2 < valor1) printf("Carta 2 (%s) venceu!\n", carta2.cidade);
+        else printf("Empate!\n");
+    } else {
+        if (valor1 > valor2) printf("Carta 1 (%s) venceu!\n", carta1.cidade);
+        else if (valor2 > valor1) printf("Carta 2 (%s) venceu!\n", carta2.cidade);
+        else printf("Empate!\n");
+    }
+}
+
+// Função principal (main)
 int main() {
     processar_carta1();  // Exibe dados da Carta 1
     processar_carta2();  // Exibe dados da Carta 2
