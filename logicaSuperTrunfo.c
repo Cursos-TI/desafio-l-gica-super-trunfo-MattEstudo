@@ -40,3 +40,31 @@ void processar_carta2() {
     printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
     printf("PIB per capita: %.2f\n\n", pib_per_capita2);
 }
+
+
+// Função para comparar as duas cartas
+void comparar_cartas() {
+    Carta carta1 = {"São Paulo", "SP", "São Paulo", 12300000, 1521.11, 1000000.0, 50};
+    Carta carta2 = {"Rio de Janeiro", "RJ", "Rio de Janeiro", 6000000, 1200.0, 500000.0, 30};
+
+    const char* atributo_escolhido = "População"; // Pode ser alterado para outros atributos
+    float valor1, valor2;
+    int eh_densidade = 0;
+
+    if (strcmp(atributo_escolhido, "População") == 0) {
+        valor1 = carta1.populacao;
+        valor2 = carta2.populacao;
+    } else if (strcmp(atributo_escolhido, "Área") == 0) {
+        valor1 = carta1.area;
+        valor2 = carta2.area;
+    } else if (strcmp(atributo_escolhido, "PIB") == 0) {
+        valor1 = carta1.pib;
+        valor2 = carta2.pib;
+    } else if (strcmp(atributo_escolhido, "Densidade Populacional") == 0) {
+        valor1 = (float)carta1.populacao / carta1.area;
+        valor2 = (float)carta2.populacao / carta2.area;
+        eh_densidade = 1;
+    } else if (strcmp(atributo_escolhido, "PIB per capita") == 0) {
+        valor1 = carta1.pib / (float)carta1.populacao;
+        valor2 = carta2.pib / (float)carta2.populacao;
+ 
