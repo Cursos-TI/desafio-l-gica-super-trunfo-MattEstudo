@@ -81,4 +81,12 @@ void comparar_cartas() {
             else if (valor2 > valor1) printf("Carta 2 (%s) venceu!\n", carta2.cidade);
             else printf("Empate!\n");
         }
-    }     
+    }   
+      // Função principal (main)
+int main() {
+    processar_carta1();  // Exibe dados da Carta 1
+    processar_carta2();  // Exibe dados da Carta 2
+    comparar_cartas();   // Compara as cartas
+
+    return 0;
+}
