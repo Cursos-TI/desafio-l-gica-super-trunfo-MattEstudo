@@ -26,3 +26,17 @@ void processar_carta1() {
     printf("Densidade Populacional: %.2f hab/km²\n", densidade1);
     printf("PIB per capita: %.2f\n\n", pib_per_capita1);
 }
+
+// Função para processar a Carta 2
+void processar_carta2() {
+    Carta carta2 = {"Caera", "CE", "Ceara", 9233656, 1200.0, 500000.0, 30};
+    float densidade2 = (float)carta2.populacao / carta2.area;
+    float pib_per_capita2 = carta2.pib / (float)carta2.populacao;
+
+    printf("Dados da Carta 2:\n");
+    printf("Estado: %s\n", carta2.estado);
+    printf("Cidade: %s\n", carta2.cidade);
+    printf("População: %d\n", carta2.populacao);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
+    printf("PIB per capita: %.2f\n\n", pib_per_capita2);
+}
